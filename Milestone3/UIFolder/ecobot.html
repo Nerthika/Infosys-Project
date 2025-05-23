@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Bot - Powered by Google Gemini</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('suggestion') }}">Suggestion</a></li>
+            <li><a href="{{ url_for('biobot') }}">Biobot</a></li>
+            <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+            <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Bio Bot</h1>
+        <p>Ask me anything about eco-friendly practices, sustainability, and environmental protection.</p>
+
+        <!-- Chat Interface -->
+        <div class="chat-container">
+            <div id="chat-box"></div> <!-- Display conversation here -->
+
+            <form id="chat-form">
+                <input type="text" id="user-input" placeholder="Type your question here..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>

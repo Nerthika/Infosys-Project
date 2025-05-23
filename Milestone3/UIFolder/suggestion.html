@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Cure Suggestion Box Styling */
+        .cure-box {
+            background-color: #eaf8e1; /* Light green background */
+            border: 2px solid #1f7e2c;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        /* Title Styling */
+        .cure-box h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        /* Disease Details Heading Styling */
+        .cure-box h3 {
+            color: #20893a;
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* Paragraph Styling */
+        .cure-box p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        /* Highlight the labels (Cause, Prevention, Suggested Products) */
+        .cure-box strong {
+            color: #299625;
+        }
+
+        /* Navigation Bar */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #2c711b;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 10px 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container for Content */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+            background-color: #eaf8e1; /* Light green background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Information Boxes */
+        .info-box {
+            background-color: #ecf0f1;
+            border: 1px solid #2c9a3c;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-box h2 {
+            color: #208b33;
+            font-size: 20px;
+        }
+
+        .info-box p {
+            color: #34495e;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Thank You Box */
+        .thank-you {
+            background-color: #eaf2f8;
+            border: 1px solid #aab7b8;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('suggestion') }}">Suggestion</a></li>
+            <li><a href="{{ url_for('biobot') }}">Biobot</a></li>
+            <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+            <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Cure Suggestions Box (only shown if 'disease_details' exists) -->
+    {% if disease_details %}
+    <div class="cure-box">
+        <h1>Cure Suggestions for {{ disease_details.name }}</h1>
+        <h3>Disease Details</h3>
+        <p><strong>Cause:</strong> {{ disease_details.cause }}</p>
+        <p><strong>Prevention:</strong> {{ disease_details.prevention }}</p>
+        <p><strong>Suggested Products:</strong> {{ disease_details.suggested_products }}</p>
+        <a href="/">Go Back</a>
+    </div>
+    {% else %}
+    <div class="cure-box">
+        <h1>No Disease Selected</h1>
+        <p>Select a disease to see suggestions.</p>
+    </div>
+    {% endif %}
+
+    <!-- Container for Plant Disease Information -->
+    <div class="container">
+        <h1>Plant Disease Information</h1>
+
+        <!-- Name of Disease Section -->
+        <div class="info-box">
+            <h2>Name of Disease:</h2>
+            <p>This section lists the name of the disease affecting the plant. Examples include Blight, Rust, or Powdery Mildew.</p>
+        </div>
+
+        <!-- Cause of Disease Section -->
+        <div class="info-box">
+            <h2>Cause of Disease:</h2>
+            <p>The disease could be caused by various factors, including bacteria, fungi, viruses, or environmental stresses like excessive moisture or temperature fluctuations.</p>
+        </div>
+
+        <!-- Prevention Section -->
+        <div class="info-box">
+            <h2>Prevention:</h2>
+            <p>Prevention methods may include crop rotation, proper irrigation, removing infected plants, or using disease-resistant plant varieties.</p>
+        </div>
+
+        <!-- Suggested Products Section -->
+        <div class="info-box">
+            <h2>Suggested Products:</h2>
+            <p>Products such as fungicides, pesticides, and specialized fertilizers can be suggested to treat or prevent the disease. For example, Neem oil for fungal diseases or copper-based fungicides for bacterial infections.</p>
+        </div>
+
+        <!-- Thank You Note Section -->
+        <div class="thank-you">
+            <p>Thank you for reviewing the plant disease information. Your understanding and attention to these details help improve plant health management. We appreciate your effort in helping others by sharing this valuable knowledge!</p>
+        </div>
+    </div>
+</body>
+</html>

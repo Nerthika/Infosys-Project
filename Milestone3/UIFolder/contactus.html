@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .company-info {
+            margin-bottom: 30px; /* Adds space between company information and the form */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('suggestion') }}">Suggestion</a></li>
+            <li><a href="{{ url_for('biobot') }}">Biobot</a></li>
+            <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+            <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Have any questions or need assistance? Feel free to reach out by filling in the form below. We’re here to help you!</p>
+
+        <!-- Company Information -->
+        <div class="company-info">
+            <h2>Our Contact Information</h2>
+            <p><strong>Company Name:</strong> Plant AI Solutions</p>
+            <p><strong>Address:</strong> 123 Green Street, Plant City, Country</p>
+            <p><strong>Phone:</strong> +1 123-456-7890</p>
+            <p><strong>Email:</strong> support@plantaisolutions.com</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form action="/submit_contact" method="post">
+            <!-- Name Input -->
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <!-- Email Input -->
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <!-- Phone Input -->
+            <label for="phone">Your Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <!-- Subject Input -->
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" placeholder="Enter subject of your message" required>
+
+            <!-- Message Input -->
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Send Message">
+        </form>
+
+        <!-- Thank You Note -->
+        <div class="thank-you-note">
+            <h3>Thank you for reaching out!</h3>
+            <p>We appreciate your interest in Plant AI Solutions. Our team will review your message and get back to you shortly.</p>
+        </div>
+    </div>
+</body>
+</html>

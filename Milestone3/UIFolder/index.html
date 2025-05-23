@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartLeaf</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+        <!-- Title and Icon Section -->
+        <div class="title">
+            <img src="{{ url_for('static', filename='images/icon.jpg') }}" alt="Plant Icon" class="icon">
+            <h1>SmartLeaf</h1>
+        </div>
+        <!-- Navigation Links Section -->
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('suggestion') }}">Suggestion</a></li>
+                <li><a href="{{ url_for('biobot') }}">Biobot</a></li>
+                <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+                <li><a href="{{ url_for('contactus') }}">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+  <!-- Main Content Section with Background Image -->
+  <section class="main-content">
+    <div class="content-left">
+      <img src="{{ url_for('static', filename='images/sample-leaf.jpg') }}" alt="Plant Leaf Sample" class="sample-image">
+    </div>
+    <div class="content-right">
+      <h2>Motive of Smartleaf</h2>
+      <p><b>The primary Motive of Smartleaf is to enable users to detect plant diseases through image analysis. By utilizing machine learning and image processing techniques, the system will accurately identify plant diseases from uploaded leaf images. The platform aims to provide timely and reliable diagnoses to help farmers and gardeners take preventive measures. Additionally, the system will offer treatment recommendations to improve plant health and yield. Ultimately, the project seeks to enhance plant care and crop productivity through the use of artificial intelligence.</b></p>
+    </div>
+  </section>
+
+  <!-- Image Upload Section -->
+  <section class="upload-section">
+    <div class="upload-box">
+      <div class="upload-left">
+        <h2>Upload Plant Leaf Image</h2>
+        
+        <!-- Form for uploading image -->
+        <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+          <input type="file" name="file" id="image-upload" accept="image/*" required>
+          <div class="image-preview" id="image-preview">
+            <p>{% if filepath %}<img src="{{ url_for('static', filename='uploads/' + filepath.split('/')[-1]) }}" alt="Uploaded Image" style="max-width: 100%; height: auto;">{% else %}No image selected{% endif %}</p>
+          </div>
+          <button type="submit" id="detect-button">Detect Disease</button>
+        </form>
+
+        <!-- Progress bar (if needed) -->
+        <div class="progress-bar" id="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
+
+      <!-- Disease Detection Result -->
+<div class="upload-right">
+  <h3>Detected Disease</h3>
+  <p id="disease_name">
+    {% if prediction %}
+      {{ prediction }}
+    {% else %}
+      None
+    {% endif %}
+  </p>
+  {% if prediction %}
+    <button id="cure-button" onclick="location.href='/suggestions?disease_name={{ prediction }}'">show cure</button>
+  {% endif %}
+</div>
+</div>
+</section>
+
+
+  <!-- Disease Detection Result Example Section -->
+  <section class="detection-result">
+    <h2>Disease Detection Results</h2>
+    <div class="disease-images">
+      <div class="disease-card">
+        <img src="static/images/disease1.jpg" alt="Powdery Mildew" class="disease-image">
+        <p>Detected: Powdery Mildew</p>
+      </div>
+      <div class="disease-card">
+        <img src="static/images/diseases 3.jpg" alt="Rust" class="disease-image">
+        <p>Detected: Rust</p>
+      </div>
+      <div class="disease-card">
+        <img src="static/images/disease2.jpg" alt="Blight" class="disease-image">
+        <p>Detected: Blight</p>
+      </div>
+    </div>
+    <section class="step-guide">
+      <h2>Step-by-Step Guide</h2>
+      <div class="guide-container">
+        <!-- Left Section: Sliding Images -->
+        <div class="carousel">
+          <img src="static/images/step 1.jpg" alt="Step 1" class="guide-image" id="guide-image">
+        </div>
+    
+        <!-- Right Section: Instructions -->
+        <div class="guide-steps">
+          <div class="step" id="step1">
+            <h3>Step 1: Upload an Image</h3>
+            <p>Choose a clear image of the plant leaf by clicking the "Upload Image" button and selecting the file from your device.</p>
+          </div>
+          <div class="step" id="step2" style="display: none;">
+            <h3>Step 2: Image Preview</h3>
+            <p>Preview the uploaded image to ensure clarity before proceeding with disease detection.</p>
+          </div>
+          <div class="step" id="step3" style="display: none;">
+            <h3>Step 3: Detect Disease</h3>
+            <p>Click the "Detect Disease" button to begin the analysis. A progress bar will indicate the detection process.</p>
+          </div>
+          <div class="step" id="step4" style="display: none;">
+            <h3>Step 4: View Results</h3>
+            <p>After detection, view the predicted disease on the right. You can now check the treatment for the detected disease.</p>
+          </div>
+          <div class="step" id="step5" style="display: none;">
+            <h3>Step 5: Cure Suggestions</h3>
+            <p>Click the "Show Cure" button to get treatment suggestions for the detected disease and follow the recommended steps.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation Buttons for Steps -->
+      <div class="guide-navigation">
+        <button onclick="prevStep()">Previous</button>
+        <button onclick="nextStep()">Next</button>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <h3>Question 1: What is this website about?</h3>
+          <p>This website provides plant disease detection services by allowing users to upload images of plant leaves. It analyzes the image and provides disease predictions and treatment suggestions.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Question 2: How do I upload an image?</h3>
+          <p>To upload an image, click the "Upload Image" button, select a clear image of your plant leaf, and the system will show a preview of it for verification.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Question 3: How accurate is the disease detection?</h3>
+          <p>The system uses advanced machine learning models to detect plant diseases. The accuracy may vary depending on the clarity and quality of the uploaded image.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Question 4: How can I get treatment suggestions?</h3>
+          <p>Once the disease is detected, the system will show the predicted disease and offer treatment suggestions based on the detected disease type.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Question 5: Can I upload multiple images?</h3>
+          <p>Currently, the system allows the upload of one image at a time for analysis. Multiple images may be supported in future updates of the platform.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Feedback Section -->
+    <section class="feedback-section">
+      <h2>User Feedback</h2>
+      <div class="feedback-container">
+        <div class="feedback-box">
+          <h3>John Doe</h3>
+          <p>"This platform has greatly helped me identify plant diseases. The process is simple, and the results are accurate. I'm impressed with the treatment suggestions."</p>
+        </div>
+        <div class="feedback-box">
+          <h3>Jane Smith</h3>
+          <p>"An amazing tool for plant lovers. It detected the disease on my tomato plant quickly and suggested the right treatment. Highly recommended!"</p>
+        </div>
+        <div class="feedback-box">
+          <h3>Michael Johnson</h3>
+          <p>"I love how easy it is to use this platform. The disease detection is fast, and the information is very helpful. A must-have for gardeners."</p>
+        </div>
+        <div class="feedback-box">
+          <h3>Emily Davis</h3>
+          <p>"This site saved my plants! The disease detection worked perfectly, and the cure suggestions were spot on. I'm grateful for this service."</p>
+        </div>
+        <div class="feedback-box">
+          <h3>David Williams</h3>
+          <p>"Great experience using this platform. I was able to upload my plant images without any hassle, and the results were incredibly useful."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Motivational Quotes Section -->
+    <section class="motivational-quotes">
+      <h2>"Technology is not just about automation; it's about creating solutions for a better world."</h2>
+    </section>
+  
+    <!-- Copyright Section -->
+    <section class="copyright">
+      <p>&copy; 2025 Plant AI Project. All rights reserved.</p>
+    </section>
+  
+  <script>
+    // JavaScript for handling the guide steps and image carousel
+    const steps = document.querySelectorAll('.step');
+    const guideImage = document.getElementById('guide-image');
+    const images = ['/static/images/step 1.jpg', '/static/images/step 2.jpg', '/static/images/step 3.jpg', '/static/images/step 4.jpg', '/static/images/step 4.jpg'];
+
+    let currentStep = 0;
+  
+    function showStep(stepIndex) {
+      steps.forEach((step, index) => {
+        step.style.display = index === stepIndex ? 'block' : 'none';
+      });
+      guideImage.src = images[stepIndex]; // Update the image
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
+  
+    // Show the first step initially
+    showStep(currentStep);
+  </script>
+
+  <script>
+    // JavaScript for image upload, progress bar, and disease detection
+    document.getElementById('image-upload').addEventListener('change', handleFileSelect);
+    
+    function handleFileSelect(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+  
+      reader.onload = function(e) {
+        const imagePreview = document.getElementById('image-preview');
+        const uploadedImage = document.createElement('img');
+        uploadedImage.src = e.target.result;
+        uploadedImage.style.width = '100%';
+        imagePreview.innerHTML = '';
+        imagePreview.appendChild(uploadedImage);
+      };
+      reader.readAsDataURL(file);
+    }
+    
+    function startDetection() {
+      document.getElementById('progress-bar').style.display = 'block';
+      let progress = 0;
+      const progressInterval = setInterval(() => {
+        if (progress >= 100) {
+          clearInterval(progressInterval);
+          fetchDiseasePrediction();
+        } else {
+          progress += 5;
+          document.getElementById('progress').style.width = `${progress}%`;
+        }
+      }, 100);
+    }
+    
+    async function fetchDiseasePrediction() {
+      // Fetch disease prediction from Flask (replace with actual endpoint)
+      const response = await fetch('/predict-disease', {
+        method: 'POST',
+        body: new FormData(document.querySelector('form'))
+      });
+      const result = await response.json();
+      
+      const diseaseName = result.disease || 'None';  // Update the disease name from result
+      document.getElementById('disease-name').innerText = diseaseName;
+    }
+    
+    function showCure() {
+      // Functionality to show cure (can be linked to another route or logic)
+      alert('Cure details will be shown here.');
+    }
+  </script>
+</body>
+</html>

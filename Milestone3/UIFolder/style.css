@@ -1,0 +1,974 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Image for the entire page */
+body {
+    background-image: url('images/background.jpg'); /* Replace with your actual background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    color: #2da05d; /* White text color for contrast */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header Styling */
+/* Header Container */
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Align title and navigation to opposite sides */
+  align-items: center; /* Align vertically */
+  padding: 20px; /* Add some padding for spacing */
+  background-color: #377419; /* Background color for the header */
+}
+
+/* Title and Icon Section */
+.title {
+  display: flex;
+  align-items: center; /* Align icon and title vertically */
+}
+
+.icon {
+  width: 40px; /* Adjust the size of the icon */
+  height: 40px;
+  margin-right: 10px; /* Space between icon and title */
+}
+
+h1 {
+  font-size: 24px;
+  color: rgb(246, 249, 247); /* Title text color */
+  margin: 0; /* Remove default margin */
+}
+
+/* Navigation Section */
+nav ul {
+  list-style: none;
+  display: flex; /* Display the list items horizontally */
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 15px; /* Space between navigation links */
+}
+
+nav ul li a {
+  color: #ecf2ec; /* Normal state color (change this to your desired color) */
+  text-decoration: none; /* Remove underline */
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  color: #2bc344; /* Hover state color (change this to your desired hover color) */
+  text-decoration: underline; /* Add underline on hover */
+}
+
+
+/* Main Content Section Styling */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.content-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.sample-image {
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.content-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.content-right h2 {
+    font-size: 24px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.content-right p {
+    font-size: 16px;
+    color: #090101;
+    line-height: 1.5;
+}
+
+/* Upload Section with Light Black Background */
+.upload-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.upload-box {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 0px;
+    width: 100%;
+    max-width: 1500px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upload-left {
+    flex: 1;
+    text-align: center;
+    color: white;
+}
+
+.upload-left h2 {
+    margin-bottom: 20px;
+}
+
+.upload-left input {
+    margin-bottom: 20px;
+}
+
+.image-preview {
+    margin: 20px 0;
+}
+
+.uploaded-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#detect-button {
+    padding: 10px 20px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#detect-button:hover {
+    background-color: #1b5e20;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    margin-top: 20px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #2e7d32;
+    width: 0;
+}
+
+/* Right Section for Disease Result */
+.upload-right {
+    flex: 1;
+    text-align: center;
+    color: white;
+}
+
+.upload-right h3 {
+    margin-bottom: 20px;
+}
+
+#cure-button {
+    padding: 10px 20px;
+    background-color: #3db747;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#cure-button:hover {
+    background-color: #41ac41;
+}
+
+/* Disease Detection Result Section */
+.detection-result {
+    text-align: center;
+    padding: 40px;
+}
+
+.detection-result h2 {
+    font-size: 28px;
+    color: #2e7d32;
+    margin-bottom: 30px;
+}
+
+.disease-images {
+    display: flex;
+    justify-content: space-around;
+}
+
+.disease-card {
+    text-align: center;
+}
+
+.disease-card img {
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.disease-card p {
+    margin-top: 10px;
+    color: rgb(21, 20, 20);
+    font-weight: bold;
+}
+/* Step Guide Section Styling */
+.step-guide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+  }
+  
+  .step-guide-left {
+    flex: 1;
+    text-align: left;
+    color: white;
+    padding-right: 20px;
+  }
+  
+  .step-guide-left h2 {
+    font-size: 28px;
+    color: #2e7d32;
+    margin-bottom: 20px;
+  }
+  
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .step h3 {
+    font-size: 20px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+  }
+  
+  .step p {
+    font-size: 16px;
+    color: #100e0e;
+  }
+ /* Step-by-Step Guide Section */
+.step-guide {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .step-guide h2 {
+    font-size: 28px;
+    color: #2e7d32;
+    margin-bottom: 20px;
+  }
+  
+  .guide-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1); /* Complete light black background */
+    padding: 20px; /* Padding around the container */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 30px;
+    width: 80%; /* Container width */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .carousel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .guide-image {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .guide-steps {
+    flex: 1;
+    text-align: center;
+    margin-left: 30px;
+    background-color: transparent; /* Transparent background for steps (it inherits from container) */
+  }
+  
+  .guide-steps h3 {
+    font-size: 24px;
+    color: #2e7d32;
+    font-weight: bold;
+    margin-top: 180px; /* Move the heading down by 40px */
+  }
+  
+  .guide-steps p {
+    font-size: 18px;
+    color: #090101;
+    margin: 10px 0;
+    font-weight: normal;
+    margin-top: 20px; /* Add space above the paragraph text */
+  }
+  
+  .guide-navigation {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .guide-navigation button {
+    padding: 10px 20px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+  
+  .guide-navigation button:hover {
+    background-color: #1b5e20;
+  }
+  
+  .step-guide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .guide-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    margin-bottom: 30px;
+  }
+  
+  .carousel, .guide-steps {
+    flex: 1;
+  }
+  
+  .guide-steps {
+    margin-left: 30px;
+    text-align: center;
+  }
+  
+  .step {
+    margin-bottom: 20px;
+  }
+  /* FAQ Section */
+.faq-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .faq-section h2 {
+    font-size: 28px;
+    color: #2e7d32;
+    margin-bottom: 30px;
+  }
+  
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.05); /* Light background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .faq-item {
+    background-color: #f4f4f4;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .faq-item h3 {
+    font-size: 20px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+  }
+  
+  .faq-item p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .faq-item p::after {
+    content: "";
+    display: block;
+    margin-top: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+/* Feedback Section */
+.feedback-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .feedback-section h2 {
+    font-size: 28px;
+    color: #2e7d32;
+    margin-bottom: 30px;
+  }
+  
+  .feedback-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .feedback-box {
+    background-color: rgba(0, 0, 0, 0.2); /* Mild black background */
+    color: #0f0f0f;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: left;
+  }
+  
+  .feedback-box h3 {
+    font-size: 20px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+  }
+  
+  .feedback-box p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .feedback-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+ /* Motivational Quotes Section */
+.motivational-quotes {
+    text-align: center;
+    margin: 0;
+    background-color: #2e7d32;
+    padding: 40px 20px;
+    width: 100%; /* Ensure full width coverage */
+    box-sizing: border-box; /* Make sure padding is included in the width */
+}
+
+.motivational-quotes h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    margin: 20px 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+}
+
+.motivational-quotes h2:first-child {
+    margin-top: 0;
+}
+
+.motivational-quotes h2:last-child {
+    margin-bottom: 0;
+}
+
+/* Copyright Section */
+.copyright {
+    text-align: center;
+    background-color: #333;
+    padding: 20px 0;
+    margin: 0;
+    width: 100%; /* Ensure full width coverage */
+    box-sizing: border-box; /* Make sure padding is included in the width */
+}
+
+.copyright p {
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+/* General styling for all pages */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('images/background.jpg'); /* Background image */
+  background-size: cover; /* Make sure the image covers the entire background */
+  background-position: center; /* Center the background image */
+  color: white; /* Make text white for better readability */
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background for the navbar */
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+/* General styling for all pages */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('images/background.jpg'); /* Background image */
+  background-size: cover; /* Make sure the image covers the entire background */
+  background-position: center; /* Center the background image */
+  color: white; /* Make text white for better readability */
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background for the navbar */
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* General styling for all pages */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('images/background.jpg'); /* Background image */
+  background-size: cover; /* Make sure the image covers the entire background */
+  background-position: center; /* Center the background image */
+  background-attachment: fixed; /* Make sure the background stays in place when scrolling */
+  color: white; /* White text for better readability */
+}
+
+/* Styling for the navigation bar */
+nav {
+  background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background for the navbar */
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+/* General styling for all pages */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('images/background.jpg'); /* Background image */
+  background-size: cover; /* Make sure the image covers the entire background */
+  background-position: center; /* Center the background image */
+  background-attachment: fixed; /* Make sure the background stays in place when scrolling */
+  color: white; /* White text for better readability */
+}
+
+/* Styling for the navigation bar */
+nav {
+  background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background for the navbar */
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+/* Basic styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #125810;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 20px;
+  display: inline-block;
+}
+
+nav ul li a:hover {
+  background-color: #126714;
+}
+
+.container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #f1f5f2;
+  text-align: center;
+}
+
+/* Info Box Styles */
+.info-box {
+  background-color: #f2f4f2;
+  border: 1px solid #71d395;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+
+.info-box h2 {
+  color: #333;
+}
+
+.info-box p {
+  color: #161010f1;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Thank You Note Styles */
+.thank-you {
+  background-color: #e0f7fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #00796b;
+  text-align: center;
+  font-size: 18px;
+  color: #004d40;
+  font-weight: bold;
+}
+
+.thank-you p {
+  margin: 0;
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 600px) {
+  nav ul li {
+      display: block;
+      margin-bottom: 10px;
+  }
+
+  .container {
+      padding: 10px;
+  }
+
+  .thank-you p {
+      font-size: 16px;
+  }
+}
+
+/* General page styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('images/background.jpg'); /* Background image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+/* Navigation bar */
+nav {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Contact page container */
+.container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Transparent dark background */
+  border-radius: 10px;
+}
+
+/* Heading and paragraph */
+h1, h2, h3 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Company information styling */
+.company-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.company-info p {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 10px 0 5px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Submit button */
+input[type="submit"] {
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Thank you note styling */
+.thank-you-note {
+  margin-top: 30px;
+  text-align: center;
+  background-color: rgba(0, 128, 0, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.thank-you-note h3 {
+  margin: 0;
+}
+
+.thank-you-note p {
+  margin: 10px 0;
+  color: #FFF8DC;
+}
+/* General page styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('images/background.jpg'); /* Background image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+/* Navigation bar */
+nav {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Chat container */
+.chat-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  margin: 50px auto;
+  max-width: 600px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#chat-box {
+  background-color: white;
+  color: black;
+  padding: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+#chat-form {
+  display: flex;
+}
+
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
