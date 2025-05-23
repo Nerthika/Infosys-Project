@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrisupport - Plant Disease Prevention</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fbfdfb;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+
+        .navbar li {
+            display: inline;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #364b20;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #dbe2dc;
+            border-radius: 5px;
+        }
+        
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+.smart {
+    color: #364b20; /* Gold for 'Smart' */
+}
+
+.leaf {
+    color:#364b20; /* White for 'leaf' */
+}
+/* Hero section */
+#hero {
+    background-image: url('background.jpg'); /* Background for the hero section */
+    background-size: cover;
+    background-position: center;
+    color: white; /* White text color for the section */
+    padding: 10px 0; /* Padding for spacing inside the hero section */
+    text-align: center; /* Centering the text */
+}
+
+/* Heading (h2) inside hero section */
+#hero h2 {
+    font-size: 50px; /* Larger font size for the title */
+    color: #364b20; /* Text color */
+    margin: 10px; /* Margin around the heading */
+    font-weight: bold; /* Bold for emphasis */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow for readability */
+}
+
+/* Paragraph (p) inside hero section */
+#hero p {
+    font-size: 20px; /* Font size for the paragraph */
+    color: #364b20; /* Text color */
+    margin-top: 10px; /* Space above the paragraph */
+    font-weight: lighter; /* Lighter font weight */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Optional shadow for readability */
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='icon.jpg') }}" alt="icon">
+                <h1><span class="smart">Smart</span><span class="leaf">Leaf</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}"><b>Home</b></a></li>
+                <li><a href="{{ url_for('about') }}"><b>About Us</b></a></li>
+                <li><a href="{{ url_for('agrisupport') }}"><b>AgriSupport</b></a></li>
+                <li><a href="{{ url_for('blogs') }}"><b>Blogs</b></a></li>
+                <li><a href="{{ url_for('contact') }}"><b>Contact Us</b></a></li>
+                <li><a href="{{ url_for('feedback') }}"><b>Feedback</b></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main><center>
+        <section id="hero">
+            <h2>Welcome to Agrisupport</h2>
+            <p>Your one-stop shop for plant disease prevention solutions</p>
+        </section>
+    
+        </center>
+            <div class="iframe-container">
+                <!-- Embed Ugaoo's Pesticides Page -->
+                <iframe src="https://www.badikheti.com/pesticide?srsltid=AfmBOooghwFRPobwUOlvLxTInflVBRK0U-15iQU1N1kYxhZUHH4oqQCB" 
+                        width="100%" 
+                        height="800px" 
+                        frameborder="0" 
+                        scrolling="auto">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Agrisupport. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

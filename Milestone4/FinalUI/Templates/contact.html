@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Agrisupport</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fbfdfb;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+
+        .navbar li {
+            display: inline;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #364b20;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #dbe2dc;
+            border-radius: 5px;
+        }
+        
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+.smart {
+    color: #364b20; /* Gold for 'Smart' */
+}
+
+.leaf {
+    color:#364b20; /* White for 'leaf' */
+}
+/* Thank You Note */
+#thank-you {
+    background-color: transparent; /* No background color */
+    text-align: center;
+    padding: 50px 20px;
+    background-image: url('background.jpg'); /* Add your background image */
+    background-size: cover;
+    background-position: center;
+}
+
+#thank-you h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color:#364b20;
+}
+
+#thank-you p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Contact Information */
+#contact-info {
+    
+    text-align: center;
+    padding: 50px;
+    background-color: white; /* No background color */
+    color:#364b20;
+}
+
+#contact-info h3 {
+    font-size: 28px;
+    margin-bottom: 0px;
+}
+
+#contact-info p {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+/* Social Media Section */
+#social-media {
+    background-color: white; /* No background color */
+    margin-top: -30px; /* Adjust the value to move it upwards */
+    padding: 0px 10px;
+    color: #364b20;
+    text-align: center;
+}
+
+
+#social-media h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+#social-media ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#social-media ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+#social-media a {
+    color: rgb(17, 16, 16);
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 100px; /* Add space below each link */
+}
+
+#social-media a:hover {
+    text-decoration: underline;
+}
+
+/* Contributors Section */
+#contributors {
+    padding: 50px 20px;
+    text-align: center;
+    background-image:  url("{{ url_for('static', filename='background.jpg') }}"); /* Add background image */
+    background-size: cover;
+    background-position: center;
+    color:#364b20;
+}
+
+#contributors h3 {
+    font-size: 28px;
+    margin-bottom: 50px;
+}
+
+/* Contributor Boxes */
+.contributors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Adjusted gap between the boxes */
+}
+
+.contributor-box {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    margin-bottom: 30px; /* Added gap below each box */
+}
+.contributor-box:hover {
+    transform: scale(1.05);
+}
+
+.contributor-box h4 {
+    font-size: 22px;
+    margin-bottom: 35px;
+}
+
+.contributor-box p {
+    font-size: 16px;
+    color: #555;
+}
+ul {
+    padding: 0;
+    margin: 10;
+    list-style-type: none;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    display: flex;
+    align-items: center; /* Aligns icons with the text */
+    text-decoration: none;
+    color: #364b20; /* Or your preferred color */
+}
+
+ul li img {
+    margin-right: 8px; /* Adds some space between the icon and the text */
+    vertical-align: middle;
+}
+
+</style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='icon.jpg') }}" alt="icon">
+                <h1><span class="smart">Smart</span><span class="leaf">Leaf</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}"><b>Home</b></a></li>
+                <li><a href="{{ url_for('about') }}"><b>About Us</b></a></li>
+                <li><a href="{{ url_for('agrisupport') }}"><b>AgriSupport</b></a></li>
+                <li><a href="{{ url_for('blogs') }}"><b>Blogs</b></a></li>
+                <li><a href="{{ url_for('contact') }}"><b>Contact Us</b></a></li>
+                <li><a href="{{ url_for('feedback') }}"><b>Feedback</b></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Thank You Note Section -->
+    <section id="thank-you">
+        <h2>Thank You for Reaching Out to Smartleaf!</h2>
+        <p>We appreciate your interest in our plant disease prevention solutions. Feel free to reach out to us for any queries or assistance.</p>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section id="contact-info">
+        <h3>Contact Information</h3>
+        <p><strong>Email:</strong> support@agrisupport.com</p>
+        <p><strong>Phone:</strong> +123-456-7890</p>
+        <p><strong>Address:</strong> 123 Plant St, Green City, Country</p>
+    </section>
+
+    <!-- Social Media Connections -->
+    <section id="social-media">
+        <h3>Connect with Us</h3>
+        <ul>
+            <li><a href="https://www.facebook.com/smartleaf" target="_blank"><img src="{{ url_for('static', filename='facebook.png') }}" alt="Facebook Icon" width="20"> Facebook</a></li>
+            <li><a href="https://twitter.com/smartleaf" target="_blank"><img src="{{ url_for('static', filename='twitter.png') }}" alt="Twitter Icon" width="20"> Twitter</a></li>
+            <li><a href="https://www.instagram.com/smartleaf" target="_blank"><img src="{{ url_for('static', filename='instagram.png') }}" alt="Instagram Icon" width="20"> Instagram</a></li>
+            <li><a href="https://www.linkedin.com/company/smartleaf" target="_blank"><img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn Icon" width="20"> LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/c/smartleaf" target="_blank"><img src="{{ url_for('static', filename='youtube.png') }}"alt="YouTube Icon" width="20"> YouTube</a></li>
+        </ul>
+        
+    </section>
+
+    <!-- Contribute to the Website Section -->
+    <section id="contributors">
+        <h3>Our Contributors</h3>
+        <div class="contributors-container">
+            <div class="contributor-box">
+                <h4>John Doe</h4>
+                <p>Project Manager</p>
+                <p>Oversees project development, timelines, and resources.</p>
+            </div>
+            <div class="contributor-box">
+                <h4>Jane Smith</h4>
+                <p>Lead Developer</p>
+                <p>Leads the development team, ensuring the code meets standards.</p>
+            </div>
+            <div class="contributor-box">
+                <h4>Mark Wilson</h4>
+                <p>UI/UX Designer</p>
+                <p>Creates the design and ensures a seamless user experience.</p>
+            </div>
+        </div>
+        <div class="contributors-container">
+            <div class="contributor-box">
+                <h4>Emily Johnson</h4>
+                <p>Content Writer</p>
+                <p>Writes articles and blog posts for user engagement.</p>
+            </div>
+            <div class="contributor-box">
+                <h4>David Brown</h4>
+                <p>Data Scientist</p>
+                <p>Analyzes data for insights to improve website performance.</p>
+            </div>
+            <div class="contributor-box">
+                <h4>Alice White</h4>
+                <p>Marketing Specialist</p>
+                <p>Promotes the website and manages social media outreach.</p>
+            </div>
+        </div>
+    </section>
+    
+
+</body>
+</html>

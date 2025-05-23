@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision - Agrisupport</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>About Us - Agrisupport</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fbfdfb;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+
+        .navbar li {
+            display: inline;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #364b20;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #dbe2dc;
+            border-radius: 5px;
+        }
+
+        /* Logo Styling */
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        /* Section Styling */
+        .about-section {
+    padding: 40px;
+    text-align: center;
+    margin-top: 0;
+    background-color: transparent;  /* Or remove the background-color line if unnecessary */
+}
+
+
+        .about-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #364b20;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #5a5a5a;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='icon.jpg') }}" alt="icon">
+                
+                <h1><span class="smart">Smart</span><span class="leaf">Leaf</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}"><b>Home</b></a></li>
+                <li><a href="{{ url_for('about') }}"><b>About Us</b></a></li>
+                <li><a href="{{ url_for('agrisupport') }}"><b>AgriSupport</b></a></li>
+                <li><a href="{{ url_for('blogs') }}"><b>Blogs</b></a></li>
+                <li><a href="{{ url_for('contact') }}"><b>Contact Us</b></a></li>
+                <li><a href="{{ url_for('feedback') }}"><b>Feedback</b></a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- About Us Section -->
+<section class="about-section">
+    <h2>Welcome to Our World </h2>
+    <p><b>Welcome to our About Us page! Here, you’ll discover the essence of who we are and what drives us.</b></p>
+
+    
+</section>
+
+    <div class="container">
+        <section class="vision-section">
+            <div class="vision-content">
+                <!-- Vision text -->
+                <div class="vision-text">
+                    <h1>Our Vision</h1>
+                    <p>"To be a leading global resource in providing innovative solutions for plant health, empowering farmers with the tools and knowledge to prevent diseases and increase crop productivity."</p>
+                </div>
+                <!-- Vision image -->
+                <div class="vision-image">
+                    <img src="{{ url_for('static', filename='vision.jpg') }}" alt="Agricultural vision with innovative farming tools">
+                </div>
+            </div>
+        </section>
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div class="mission-content">
+                <div class="mission-image">
+                    <img src="{{ url_for('static', filename='mission.jpg') }}" alt="Farmer collaboration and community support for agriculture">
+                </div>
+                <div class="mission-text">
+                    <h1>Our Mission</h1>
+                    <p>"To empower farmers worldwide by offering sustainable solutions for plant health and disease prevention, fostering innovation, and supporting the global agricultural community to achieve higher productivity and food security."</p>
+                </div>
+            </div>
+        </section>
+        <!-- Agri Support Section -->
+        <section class="agri-support-section">
+            <div class="agri-support-content">
+                <div class="agri-support-text">
+                    <h1>Agri Support - Disease Prevention</h1>
+                    <p>Our Agri Support products are designed to help farmers protect their crops from common plant diseases. With a variety of solutions, including natural remedies and advanced treatments, we ensure that farmers can maintain healthy crops and a strong yield. Explore our range of products below to find the right solution for your needs.</p>
+                </div>
+                <div class="agri-support-image">
+                    <img src="{{ url_for('static', filename='agrisupport.jpg') }}" alt="agrisupportsupport products for disease prevention">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Blogs Section (RSS Feed) -->
+      <section class="blogs-section">
+      <div class="blogs-content">
+        <div class="blogs-image">
+            <img src="{{ url_for('static', filename='blogs.jpg') }}" alt="Blog Image">
+       </div>
+        <div class="blogs-text">
+            <h2>Latest Blogs: Plant Disease News</h2>
+            <p>Stay up-to-date with the latest trends, research, and expert advice on plant diseases and their prevention. Our blogs provide in-depth insights into emerging plant health challenges and how to address them effectively.</p>
+        </div>
+       </div>
+      </section>
+      <!-- Impact Section -->
+<section class="impact-section">
+    <div class="impact-content">
+        <div class="impact-text">
+            <h2>Our Impact: Improving Plant Health</h2>
+            <p>At AgriSupport, we strive to make a meaningful impact on the health of plants and crops. By providing innovative solutions for disease prevention, we help farmers protect their crops, improve yields, and promote sustainable agriculture practices. Our tools are designed to empower farmers to take charge of their plant health and reduce the impact of plant diseases on their livelihoods.</p>
+        </div>
+        <div class="impact-image">
+            <img src="{{ url_for('static', filename='impact.jpg') }}" alt="Impact Image">
+        </div>
+    </div>
+</section>
+
+
+    </div>
+</body>
+</html>

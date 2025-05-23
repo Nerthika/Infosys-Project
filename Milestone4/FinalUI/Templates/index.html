@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartleaf - Header Section</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='icon.jpg') }}" alt="icon">
+                <h1><span class="smart">Smart</span><span class="leaf">leaf</span></h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}"><b>Home</b></a></li>
+                    <li><a href="{{ url_for('about') }}"><b>About Us</b></a></li>
+                    <li><a href="{{ url_for('agrisupport') }}"><b>AgriSupport</b></a></li>
+                    <li><a href="{{ url_for('blogs') }}"><b>Blogs</b></a></li>
+                    <li><a href="{{ url_for('contact') }}"><b>Contact Us</b></a></li>
+                    <li><a href="{{ url_for('feedback') }}"><b>Feedback</b></a></li>
+                </ul>
+            </nav>
+            
+        </nav>
+    </header>
+   <!-- Main Section -->
+<!-- Main Section -->
+<section class="main-section">
+    <div class="content-container">
+        <!-- Welcome Message -->
+        <h2 class="welcome-message">Welcome to Smartleaf!</h2>
+        
+        <!-- Main Content -->
+        <h1>Detect Plant Diseases with Confidence</h1>
+        <p>With Smartleaf, experience fast and accurate plant disease detection.</p>
+        
+        <!-- Get Started Button -->
+        <button class="curved-btn" onclick="showUploadSection()">Get Started</button>
+    </div>
+</section>
+
+<!-- Upload Section (Initially Hidden) -->
+<section id="upload-section" class="upload-section" style="display: none;">
+    <!-- Upload section content -->
+</section>
+
+
+   <!--upload section-->
+   <section>
+    <div class="upload-section">
+    <h2>Upload Plant Image</h2>
+    <p class="upload-description">Select a clear image of your plant leaf to check for possible diseases. The image will be analyzed, and disease detection results will be displayed.</p>
+    
+    <!-- Image Upload and Preview Section -->
+<div class="file-container">
+    <form method="POST" enctype="multipart/form-data" id="upload-form">
+        <!-- File input to allow the user to choose a file -->
+        <input type="file" id="upload-input" name="file" class="upload-input" accept="image/*" onchange="showPreview(); autoSubmit();">
+        <label for="upload-input" class="upload-btn">Upload Image</label>
+    </form>
+</div>
+
+<!-- Image Preview Section (Initially Hidden) -->
+<div id="image-preview-container" class="image-preview-container" style="display: none;">
+    <img id="image-preview" src="" alt="Preview" class="image-preview">
+</div>
+
+<!-- Analyze Button (Initially Hidden) -->
+<div id="analyze-container" style="display: none;">
+    <button class="analyze-btn" onclick="analyzeImage()">Analyze</button>
+</div>
+
+<!-- Progress Bar (Initially Hidden) -->
+<div id="progress-container" style="display: none;">
+    <div id="progress-bar"></div>
+</div>
+
+<div id="analysis-result" style="display: none; text-align: center; margin-top: 20px;">
+    <h3>Detected: <span id="disease-name">{{ predicted_disease or 'No disease detected' }}</span></h3>
+    <button class="cure-btn" onclick="showCure()">Cure</button>
+</div>
+
+
+<div id="suggestionSection" style="text-align: center; margin-top: 20px;">
+    <h2>{{ disease_info[' predicted_disease'] if disease_info and disease_info.get('name') else 'No disease detected' }}</h2>
+    <p><strong>Cause:</strong> {{ disease_info['cause'] if disease_info and disease_info.get('cause') else 'No information available' }}</p>
+    <p><strong>Prevention:</strong> {{ disease_info['prevention'] if disease_info and disease_info.get('prevention') else 'No information available' }}</p>
+    <p><strong>Suggested Products:</strong> {{ disease_info['suggested_products'] if disease_info and disease_info.get('suggested_products') else 'No information available' }}</p>
+</div>
+
+
+<!-- Buy Products Button (Initially Hidden) -->
+<div style="text-align: center;">
+    <button class="buyBtn" style="display: none;" onclick="buyProduct()">Buy Products</button>
+</div>
+    
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</section>
+  <!-- User Guidance Section -->
+  <section class="user-guidance">
+    <!-- Title Section -->
+    <h1 class="guide-title">Easy Plant Disease Detection Guide</h1>
+
+    <div class="guidance-container">
+        <!-- Image on the Left -->
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='guidance.jpg') }}" alt="Guidance Image" class="guidance-image">
+        </div>
+
+        <!-- Step-by-Step Guide on the Right -->
+        <div class="steps-container">
+            <h2>User Guidance</h2>
+            <p>Follow the steps below to properly use the plant disease detection tool:</p>
+            <ol class="steps-list">
+                <li>Step 1: Upload a clear image of the plant leaf by clicking the 'Upload Image' button.</li>
+                <li>Step 2: Review the preview of the uploaded image.</li>
+                <li>Step 3: Click 'Analyze' to start the analysis process.</li>
+                <li>Step 4: Wait for the progress bar to complete.</li>
+                <li>Step 5: View the disease name detected and recommended cure.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!-- New FAQ Section -->
+<section class="faq-section">
+    <h2 class="faq-title">Frequently Asked Questions (FAQs)</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <h3 class="faq-question">What kind of images can I upload?</h3>
+            <p class="faq-answer"><b>You can upload clear, high-resolution images of plant leaves. Make sure the leaf is not blurry and is well-lit to ensure accurate analysis.</b></p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">How long does it take for the analysis to complete?</h3>
+            <p class="faq-answer"><b>The analysis typically takes a few seconds depending on the image size and complexity of the leaf disease.</b></p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Can I upload multiple images at once?</h3>
+            <p class="faq-answer"><b>Currently, the tool supports one image upload at a time. Please upload one image and wait for the results before uploading another.</b></p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What should I do if the tool doesn't detect a disease?</h3>
+            <p class="faq-answer"><b>If the tool doesn't detect a disease, try uploading a clearer image or one with better lighting. If the issue persists, it may indicate that the leaf is healthy or the tool has limitations in detecting certain diseases.</b></p>
+        </div>
+    </div>
+</section>
+<!-- Motivational Quotes Section -->
+<section class='motivational-section'>
+    <h2 class='motivational-title'> Quotes</h2>
+    <div class='quotes-container'>
+        <div class='quote-item'>
+            <p class='quote-text'>'The best way to predict the future is to invent it.' – Alan Kay</p>
+        </div>
+    </div>
+</section>
+
+<!-- Copyright Notice Section -->
+<footer class="footer-section">
+    <p class="copyright-text">© 2025 Easy Plant Disease Detection. All rights reserved.</p>
+    <p class="additional-info">
+        <a href="/terms-of-service" class="footer-link">Terms of Service</a> | 
+        <a href="/privacy-policy" class="footer-link">Privacy Policy</a> | 
+        <a href="/contact" class="footer-link">Contact Us</a>
+    </p>
+</footer>
+  
+    
+
+
+</body>
+</html>
