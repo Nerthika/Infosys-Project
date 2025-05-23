@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantAI: AI-Driven Leaf Disease Identifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="main-section">
+        <div class="banner">
+            <h1>PlantAI: AI-Driven Leaf Disease Identifier</h1>
+            <p class="banner-description">Our AI-driven platform uses advanced machine learning algorithms to detect and identify diseases in plant leaves, empowering farmers with the tools to protect their crops and increase yields sustainably.</p>
+        </div>
+
+        <div class="frame-container">
+            <div class="upload-frame">
+                <h3>Upload Plant Image</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="file" id="fileUpload" name="file" accept="image/*" required onchange="previewImage()">
+                    <button type="submit">Upload & Predict</button>
+                </form>
+                <div id="imagePreviewContainer" style="display:none;">
+                    <h4>Image Preview:</h4>
+                    <img id="imagePreview" src="" alt="Preview" style="max-width: 100%; max-height: 300px;">
+                </div>
+                {% if success %}
+                <div id="uploadSuccessMessage">
+                    <p>Image uploaded successfully!</p>
+                    <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 100%; max-height: 300px;">
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="output-frame">
+                <h3>Prediction Result</h3>
+                <div id="result">
+                    <p>No result yet.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="evidence">
+            <h3 class="evidence-title">Evidence Work</h3>
+            <div class="evidence-item">
+                <img src="{{ url_for('static', filename='powdery mildew.jpg') }}" alt="Powdery Mildew" class="disease-image">
+                <div class="evidence-info">
+                    <h4>Powdery Mildew</h4>
+                    <p><strong>Cause:</strong> Powdery mildew is caused by a variety of fungal species. It is a common plant disease that appears as white, powdery patches on leaves, stems, and buds. The fungus thrives in dry conditions and affects a wide range of plants.</p>
+                    <p><strong>Symptoms:</strong> White, powdery fungal growth, distorted or stunted leaves, yellowing of leaves, and reduced plant growth.</p>
+                    <p><strong>Prevention Measures:</strong> To prevent powdery mildew, it's important to avoid overcrowding plants, ensure proper air circulation, and water plants from the base to avoid wetting the leaves. Fungicides can also be used to control its spread in severe cases.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote">
+            <p><strong>"AI and agriculture: sowing the future for a greener world."</strong></p>
+        </div>
+    </div>
+
+    <script>
+        function previewImage() {
+            const file = document.getElementById('fileUpload').files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.src = e.target.result;
+                document.getElementById('imagePreviewContainer').style.display = 'block';
+            };
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
