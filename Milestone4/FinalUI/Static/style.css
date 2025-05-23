@@ -1,0 +1,750 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #fbfdfb; /* Dark green color */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.smart {
+    color: #364b20; /* Gold for 'Smart' */
+}
+
+.leaf {
+    color:#364b20; /* White for 'leaf' */
+}
+
+/* Navigation links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    color:#364b20;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #f9faf7; /* Slightly darker green on hover */
+    border-radius: 5px;
+}
+
+/* Main Section styling */
+.main-section {
+    height: 80vh;
+    background-image: url('firstimage.jpg'); /* Replace with your actual background image path */
+    background-size: 100% 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Needed to position wave at bottom */
+    z-index: 1; /* Ensures section content stays above the wave */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* Add overlay to make text stand out */
+.main-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: -1; /* Keeps overlay behind content */
+}
+
+/* Text Container with padding */
+.content-container {
+    text-align: center;
+    padding: 20px 40px; /* Increased padding */
+    color: white;
+}
+
+/* Welcome Message Styles */
+.welcome-message {
+    font-size: 30px; /* Slightly larger than normal text */
+    font-weight: bold;
+    color: #f4efef; /* Light color for better contrast */
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better readability */
+}
+
+/* Heading Styles */
+.content-container h1 {
+    font-size: 48px; /* Increased font size */
+    font-weight: bold;
+    color: #f4efef; /* Light color for better contrast */
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better readability */
+}
+
+/* Paragraph Styles */
+.content-container p {
+    font-size: 20px;
+    color: #f4efef;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+}
+
+/* Button Styles */
+.curved-btn {
+    background-color: #f9fffa; /* Dark green background */
+    color:#364b20;
+    padding: 12px 30px; /* Larger padding for a more prominent button */
+    font-size: 18px; /* Larger font size */
+    border: none;
+    border-radius: 30px; /* Curved edges for button */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.curved-btn:hover {
+    background-color:#dbe2dc; /* Slightly darker green on hover */
+}
+
+/* Get Started Section */
+.get-started-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.get-started-section h2 {
+    font-size: 32px;
+    color: #2C6D32;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.get-started-section p {
+    font-size: 18px;
+    color: #f4efef;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.get-started-btn {
+    background-color: #3A8D43;
+    padding: 12px 30px;
+    font-size: 18px;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+    background-color: #2C6D32;
+}
+/* Upload Section */
+.upload-section {
+    margin-top: 50px;  /* Adjust the space above the container */
+    text-align: center;
+    background-color: #f1f5f1;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: auto;
+}
+
+
+/* Title */
+.upload-section h2 {
+    font-size: 32px;
+    color:  #364b20;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Description */
+.upload-description {
+    font-size: 18px;
+    color:  #364b20;
+    margin-bottom: 35px;
+}
+
+/* File Upload Section */
+.file-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Custom Upload Button */
+.upload-btn {
+    background-color:  #364b20;
+    padding: 12px 30px;
+    font-size: 18px;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color:#bcdabc;
+}
+
+.upload-input {
+    display: none;
+}
+
+/* Image Preview Section */
+.image-preview-container {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px #364b20;
+}
+
+.image-preview {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Analyze Button */
+.analyze-btn {
+    background-color:  #364b20;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.analyze-btn:hover {
+    background-color: #bcdabc;
+}
+/* Progress Bar */
+#progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #364b20;
+    border-radius: 5px;
+}
+
+/* Analysis Result */
+#analysis-result {
+    margin-top: 30px;
+}
+
+#analysis-result h3 {
+    font-size: 24px;
+    color: #364b20;
+    margin-bottom: 20px;
+}
+
+.cure-btn {
+    background-color:#364b20;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cure-btn:hover {
+    background-color: #bcdabc;
+}
+/* Style for the title */
+.guide-title {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 20px;
+    margin-bottom: 40px; /* Add space below title */
+    color: #364b20; /* Add color to title */
+    font-weight: bold; /* Make the title bold */
+}
+
+/* User Guidance Section */
+.user-guidance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: #f4f4f4;
+    margin-top: 0px;
+}
+
+.guidance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.image-container {
+    flex: 1;
+    padding-right: 30px;
+    text-align: center;
+}
+
+.guidance-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.steps-container {
+    flex: 1;
+    text-align: center;
+}
+
+.steps-container h2 {
+    font-size: 32px;
+    color: #364b20;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.steps-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.steps-list {
+    text-align: left;
+    font-size: 18px;
+    list-style: decimal;
+    padding-left: 40px;
+}
+
+.steps-list li {
+    margin-bottom: 15px;
+}
+/* FAQ Section Styling */
+.faq-section {
+    background-color: #f1f5f1;
+    padding: 40px;
+    margin-top: 50px; /* Space from previous section */
+     
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 2.5em;
+    color:  #364b20;  /* Same green as the title in the guide */
+    margin-bottom: 30px;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;  /* Space between FAQ items */
+    max-width: 800px;
+    margin: 0 auto; /* Center align the FAQ section */
+}
+
+.faq-item {
+    display: flex;
+    flex-direction: column; /* Align question and answer vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text */
+}
+
+.faq-question {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #364b20;
+}
+
+.faq-answer {
+    font-size: 1em;
+    color: #555;
+    margin-top: 10px;
+}
+/* Motivational Quotes Section Styling */
+.motivational-section {
+    background-color: #f1f5f1;
+    padding: 100px;
+    text-align: center;
+    margin-top:0;
+}
+
+.motivational-title {
+    font-size: 2.5em;
+    color:  #364b20;  /* Matching the guide title color */
+    margin-bottom: 30px;
+}
+
+.quotes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;  /* Space between quotes */
+    align-items: center;
+}
+
+.quote-item {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+}
+
+.quote-text {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #333;
+}
+
+/* Copyright Section Styling */
+.footer-section {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.copyright-text {
+    font-size: 1em;
+    color: #ccc;
+    margin: 0;
+}
+
+.additional-info {
+    font-size: 0.9em;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.footer-link {
+    color:  #eff1ed;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/*background*/
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;  /* Ensures the background covers the entire viewport */
+}
+html {
+    scroll-behavior: smooth;
+}
+/*about us*/
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container for the page */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+/* Vision and Mission section styling */
+section {
+    background-color: #ffffff;
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox layout for vision content */
+.vision-content, .mission-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Vision text styling */
+.vision-text, .mission-text {
+    flex: 1;
+    padding-right:50px;
+}
+
+.vision-text h1, .mission-text h1 {
+    font-size: 2.5em;
+    color: #364b20;
+    margin-bottom: 20px;
+}
+
+.vision-text p, .mission-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Vision and Mission image styling */
+.vision-image, .mission-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.vision-image img, .mission-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+/* Agri Support section styling */
+.agri-support-section {
+    background-color: #ffffff;
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox layout for Agri Support content */
+.agri-support-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Text styling for Agri Support */
+.agri-support-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.agri-support-text h1 {
+    font-size: 2.5em;
+    color: #364b20;
+    margin-bottom: 20px;
+}
+
+.agri-support-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Image styling for Agri Support */
+.agri-support-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.agri-support-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Blogs section container */
+.blogs-section {
+    background-color: #ffffff;
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox layout for blogs content (image on left, content on right) */
+.blogs-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Blogs image styling */
+.blogs-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-right: 20px; /* Padding for space between image and text */
+}
+
+/* Blog image styling */
+.blogs-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Blogs text styling */
+.blogs-text {
+    flex: 1;
+    padding-left: 20px;
+}
+
+/* Blog heading styling */
+.blogs-text h2 {
+    font-size: 2.5em;
+    color: #364b20;
+    margin-bottom: 20px;
+}
+
+/* Blog description styling */
+.blogs-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+/* Impact section container */
+.impact-section {
+    background-color: #ffffff;
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox layout for impact content (image on left, content on right) */
+.impact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Impact image styling */
+.impact-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-right: 20px; /* Padding for space between image and text */
+}
+
+/* Impact image styling */
+.impact-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Impact text styling */
+.impact-text {
+    flex: 1;
+    padding-left: 20px;
+}
+
+/* Impact heading styling */
+.impact-text h2 {
+    font-size: 2.5em;
+    color: #364b20;
+    margin-bottom: 20px;
+}
+
+/* Impact description styling */
+.impact-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+/* Curved Buttons */
+.buyBtn, .resetBtn, .uploadBtn, .cure-btn {
+    padding: 10px 20px;
+    background-color: #364b20;
+    color: white;
+    border: none;
+    border-radius: 20px; /* Curved buttons */
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.buyBtn:hover, .resetBtn:hover, .uploadBtn:hover, .cure-btn:hover {
+    background-color: #b7cdb8;
+}
+
+/* Suggestion Section Styling */
+#suggestionSection {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: inline-block;
+    width: auto;
+}
+
+/* Disease Detection Result Section */
+#analysis-result {
+    margin-bottom: 20px;
+}
+.buyBtn {
+    display: none;
+}
+
+#analysis-result {
+    display: none;
+}
+
+#suggestionSection {
+    display: none;
+}
